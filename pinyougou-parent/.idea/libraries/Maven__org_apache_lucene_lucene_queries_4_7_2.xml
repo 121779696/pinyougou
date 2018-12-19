@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.lucene:lucene-queries:4.7.2">
+    <CLASSES>
+      <root url="jar://D:/Java/maven_pinyougou/maven_repository_pinyougou/org/apache/lucene/lucene-queries/4.7.2/lucene-queries-4.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/Java/maven_pinyougou/maven_repository_pinyougou/org/apache/lucene/lucene-queries/4.7.2/lucene-queries-4.7.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/Java/maven_pinyougou/maven_repository_pinyougou/org/apache/lucene/lucene-queries/4.7.2/lucene-queries-4.7.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
