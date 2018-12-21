@@ -42,6 +42,7 @@
     <orderEntry type="module" module-name="pinyougou_dao" />
     <orderEntry type="module" module-name="pinyougou_pojo" />
     <orderEntry type="module" module-name="pinyougou_sellergoods_interface" />
+    <orderEntry type="module" module-name="pinyougou_common" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-solr:1.5.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.11.5.RELEASE" level="project" />
