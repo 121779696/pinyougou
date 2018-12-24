@@ -1,6 +1,7 @@
 package com.pinyougou.manager.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.pinyougou.page.service.ItemPageService;
 import com.pinyougou.pojo.TbGoods;
 import com.pinyougou.pojo.TbItem;
 import com.pinyougou.pojogroup.Goods;
@@ -8,7 +9,6 @@ import com.pinyougou.search.service.ItemSearchService;
 import com.pinyougou.sellergoods.service.GoodsService;
 import entity.PageResult;
 import entity.Result;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -125,13 +125,19 @@ public class GoodsController {
 	public Result updateStatus(Long[] ids,String status){
 		try {
 			goodsService.updateStatus(ids,status);
-            //按照SPU ID查询 SKU列表(状态为1)
+
 			if ("1".equals(status)){
+				//*************导入索引库*********
+				//按照SPU ID查询 SKU列表(状态为1)
                 List<TbItem> list = goodsService.findItemListByGoodsIdandStatus(ids, status);
                 //调用搜索接口实现数据批量导入
                 if (list.size()>0){
                     itemSearchService.importList(list);
                 }
+                //************生成商品详细页*******
+				for (Long goodsId : ids) {
+					itemPageService.genItemHtml(goodsId);
+				}
             }
 
 			return new Result(true,"成功");
@@ -139,6 +145,15 @@ public class GoodsController {
 			e.printStackTrace();
 			return new Result(false,"失败");
 		}
+	}
+
+	@Reference(timeout = 60000)
+	private ItemPageService itemPageService;
+
+	@RequestMapping("/genHtml")
+	public void genHtml(Long goodsId){
+
+		itemPageService.genItemHtml(goodsId);
 	}
 	
 }

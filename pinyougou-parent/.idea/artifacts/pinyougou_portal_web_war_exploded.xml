@@ -7,9 +7,6 @@
           <element id="module-output" name="pinyougou_portal_web" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="pinyougou_portal_web-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="pinyougou_portal_web" />
-          </element>
           <element id="archive" name="pinyougou_pojo-1.0-SNAPSHOT.jar">
             <element id="module-output" name="pinyougou_pojo" />
           </element>

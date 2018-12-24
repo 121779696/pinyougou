@@ -7,9 +7,6 @@
           <element id="module-output" name="pinyougou_content_service" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="pinyougou_content_service-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="pinyougou_content_service" />
-          </element>
           <element id="archive" name="pinyougou_dao-1.0-SNAPSHOT.jar">
             <element id="module-output" name="pinyougou_dao" />
           </element>
