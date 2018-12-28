@@ -1,18 +1,25 @@
 package com.pinyougou.manager.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.pinyougou.page.service.ItemPageService;
+import com.alibaba.fastjson.JSON;
 import com.pinyougou.pojo.TbGoods;
 import com.pinyougou.pojo.TbItem;
 import com.pinyougou.pojogroup.Goods;
-import com.pinyougou.search.service.ItemSearchService;
+
 import com.pinyougou.sellergoods.service.GoodsService;
 import entity.PageResult;
 import entity.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,6 +34,18 @@ public class GoodsController {
 
 	@Reference
 	private GoodsService goodsService;
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+    @Autowired
+    private Destination queueSolrDestination;
+    @Autowired
+    private Destination queueSolrDeleteDestination;
+    @Autowired
+    private Destination topicPageDestination;
+    @Autowired
+    private Destination topicPageDeleteDestination;
+
 	
 	/**
 	 * 返回全部列表
@@ -94,11 +113,30 @@ public class GoodsController {
 	 * @param ids
 	 * @return
 	 */
+
+
+
 	@RequestMapping("/delete")
 	public Result delete(Long [] ids){
 		try {
 			goodsService.delete(ids);
-			itemSearchService.deleteByGoodsIds(Arrays.asList(ids));
+
+            //删除索引库
+			// itemSearchService.deleteByGoodsIds(Arrays.asList(ids));
+            jmsTemplate.send(queueSolrDeleteDestination, new MessageCreator() {
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+                    return session.createObjectMessage(ids);
+                }
+            });
+            //删除静态网页
+            jmsTemplate.send(topicPageDeleteDestination, new MessageCreator() {
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+                    return session.createObjectMessage(ids);
+                }
+            });
+
 			return new Result(true, "删除成功"); 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,8 +156,10 @@ public class GoodsController {
 		return goodsService.findPage(goods, page, rows);		
 	}
 
-    @Reference(timeout = 10000)
-    private ItemSearchService itemSearchService;
+   /* @Reference(timeout = 10000)
+    private ItemSearchService itemSearchService;*/
+
+
 
 	@RequestMapping("/updateStatus")
 	public Result updateStatus(Long[] ids,String status){
@@ -132,11 +172,26 @@ public class GoodsController {
                 List<TbItem> list = goodsService.findItemListByGoodsIdandStatus(ids, status);
                 //调用搜索接口实现数据批量导入
                 if (list.size()>0){
-                    itemSearchService.importList(list);
+                    // itemSearchService.importList(list);
+                    String s = JSON.toJSONString(list);
+                    jmsTemplate.send(queueSolrDestination, new MessageCreator() {
+                        @Override
+                        public Message createMessage(Session session) throws JMSException {
+                            return session.createTextMessage(s);
+                        }
+                    });
+                }else {
+                    System.out.println("没有明细数据");
                 }
                 //************生成商品详细页*******
 				for (Long goodsId : ids) {
-					itemPageService.genItemHtml(goodsId);
+					// itemPageService.genItemHtml(goodsId);
+                    jmsTemplate.send(topicPageDestination, new MessageCreator() {
+                        @Override
+                        public Message createMessage(Session session) throws JMSException {
+                            return session.createTextMessage(goodsId+"");
+                        }
+                    });
 				}
             }
 
@@ -147,13 +202,13 @@ public class GoodsController {
 		}
 	}
 
-	@Reference(timeout = 60000)
-	private ItemPageService itemPageService;
+	// @Reference(timeout = 60000)
+	// private ItemPageService itemPageService;
 
 	@RequestMapping("/genHtml")
 	public void genHtml(Long goodsId){
 
-		itemPageService.genItemHtml(goodsId);
+		// itemPageService.genItemHtml(goodsId);
 	}
 	
 }
