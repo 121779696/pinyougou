@@ -17,6 +17,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/sms_micro_service/pom.xml" />
       </list>
     </option>
   </component>

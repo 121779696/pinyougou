@@ -23,6 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/pinyougou_user_interface/pinyougou_user_interface.iml" filepath="$PROJECT_DIR$/pinyougou_user_interface/pinyougou_user_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/pinyougou_user_service/pinyougou_user_service.iml" filepath="$PROJECT_DIR$/pinyougou_user_service/pinyougou_user_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/pinyougou_user_web/pinyougou_user_web.iml" filepath="$PROJECT_DIR$/pinyougou_user_web/pinyougou_user_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sms_micro_service/sms_micro_service.iml" filepath="$PROJECT_DIR$/sms_micro_service/sms_micro_service.iml" />
     </modules>
   </component>
 </project>

@@ -30,7 +30,7 @@ import javax.jms.*;
  * @author Administrator
  *
  */
-@Service
+@Service(timeout = 50000)
 public class UserServiceImpl implements UserService {
 
 	@Autowired

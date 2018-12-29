@@ -26,6 +26,7 @@
         <module name="pinyougou_user_interface" />
         <module name="pinyougou_user_service" />
         <module name="pinyougou_user_web" />
+        <module name="sms_micro_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -35,6 +36,7 @@
       <module name="pinyougou_content_service" target="1.8" />
       <module name="pinyougou_dao" target="1.8" />
       <module name="pinyougou_manager_web" target="1.8" />
+      <module name="pinyougou_message_sms" target="1.8" />
       <module name="pinyougou_page_interface" target="1.8" />
       <module name="pinyougou_page_service" target="1.8" />
       <module name="pinyougou_page_web" target="1.8" />
@@ -50,6 +52,7 @@
       <module name="pinyougou_user_interface" target="1.8" />
       <module name="pinyougou_user_service" target="1.8" />
       <module name="pinyougou_user_web" target="1.8" />
+      <module name="sms_micro_service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
