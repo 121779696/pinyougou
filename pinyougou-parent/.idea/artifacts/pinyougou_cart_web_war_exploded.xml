@@ -16,6 +16,12 @@
           <element id="archive" name="pinyougou_cart_interface-1.0-SNAPSHOT.jar">
             <element id="module-output" name="pinyougou_cart_interface" />
           </element>
+          <element id="archive" name="pinyougou_user_interface-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="pinyougou_user_interface" />
+          </element>
+          <element id="archive" name="pinyougou_order_interface-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="pinyougou_order_interface" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-solr:1.5.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.11.5.RELEASE" />
