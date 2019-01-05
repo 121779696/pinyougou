@@ -2,26 +2,7 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="Spring Security" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-security.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/springmvc.xml</file>
-        </fileset>
-      </configuration>
-    </facet>
-    <facet type="web" name="Web">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
-        </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </sourceRoots>
-      </configuration>
+      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -35,12 +16,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="pinyougou_pojo" />
-    <orderEntry type="module" module-name="pinyougou_common" />
-    <orderEntry type="module" module-name="pinyougou_cart_interface" />
-    <orderEntry type="module" module-name="pinyougou_user_interface" />
-    <orderEntry type="module" module-name="pinyougou_order_interface" />
-    <orderEntry type="module" module-name="pinyougou_pay_interface" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-solr:1.5.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.11.5.RELEASE" level="project" />

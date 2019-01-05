@@ -3,9 +3,8 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Security" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-security.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/springmvc.xml</file>
+        <fileset id="fileset" name="ApplicationContext Service" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-service.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -35,12 +34,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="pinyougou_pojo" />
     <orderEntry type="module" module-name="pinyougou_common" />
-    <orderEntry type="module" module-name="pinyougou_cart_interface" />
-    <orderEntry type="module" module-name="pinyougou_user_interface" />
-    <orderEntry type="module" module-name="pinyougou_order_interface" />
     <orderEntry type="module" module-name="pinyougou_pay_interface" />
+    <orderEntry type="library" name="Maven: com.github.wxpay:wxpay-sdk:0.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-solr:1.5.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.11.5.RELEASE" level="project" />
@@ -51,7 +49,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.7" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.7" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />

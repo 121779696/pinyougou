@@ -2,6 +2,7 @@ package com.pinyougou.order.service;
 import java.util.List;
 import com.pinyougou.pojo.TbOrder;
 
+import com.pinyougou.pojo.TbPayLog;
 import entity.PageResult;
 /**
  * 服务层接口
@@ -49,7 +50,6 @@ public interface OrderService {
 	 * @param ids
 	 */
 	public void delete(Long[] ids);
-
 	/**
 	 * 分页
 	 * @param pageNum 当前页 码
@@ -58,4 +58,21 @@ public interface OrderService {
 	 */
 	public PageResult findPage(TbOrder order, int pageNum, int pageSize);
 	
+	/**
+	 * @description 根据用户查询payLog
+	 * @param userId
+	 * @return com.pinyougou.pojo.TbPayLog
+	 * @createTime 下午 20:40:40 2019年1月4日, 0004
+	 */
+	public TbPayLog searchPayLogFromRedis(String userId);
+    
+	/**
+	 * @description 修改订单状态
+	 * @param out_trade_no
+     * @param transaction_id
+	 * @return void
+	 * @createTime 下午 21:18:58 2019年1月4日, 0004
+	 */
+	public void updateOrderStatus(String out_trade_no,String transaction_id);
+
 }
